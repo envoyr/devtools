@@ -7,7 +7,7 @@ Soon™
 devtools is installed by running of the following command in your terminal. You can install this via the command-line with either curl or wget.
 
 ````bash
-bash -c "$(curl -fsSL https://raw.github.com/envoyr/devtools/main/bin/install.sh)"
+bash -c "$(curl -fsSL https://github.com/envoyr/devtools/blob/main/bin/install.sh)"
 ````
 
 ## Documentation

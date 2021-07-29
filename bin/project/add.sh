@@ -9,13 +9,13 @@ export try_files='$uri $uri/ /index.php?$query_string' # export try_files='$uri 
 # Check if domain name is set
 if [ -z "$domain" ]; then
   echo "Error: Domain not entered!"
-  exit
+  exit 1
 fi
 
 # Check if user name is set
 if [ -z "$user" ]; then
   echo "Error: User not entered!"
-  exit
+  exit 1
 fi
 
 # Handle options
@@ -33,7 +33,7 @@ done
 
 # Add new user to the system
 if id "$user" &>/dev/null; then
-    echo 'User already exist!'
+    echo 'User already exist! Continue...'
 else
     devtools user add "$user"
 fi

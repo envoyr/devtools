@@ -4,20 +4,18 @@ set -e
 
 export DEVTOOLS_DIRECTORY="$HOME/.devtools"
 
-# automatically update application if enabled
+# Automatically update application if enabled
 if [ -f "$DEVTOOLS_DIRECTORY/.autoupdate" ]; then
     source "$DEVTOOLS_DIRECTORY/bin/core/update.sh"
-else
-    echo "The autoupdate feature is currently disabled."
-    echo "You can easyly enable it with 'devtools self autoupdate enable'"
 fi
 
-# command file
+# Command file path
 execute_file="$DEVTOOLS_DIRECTORY/bin/$1/$2.sh"
 
-# execute command
+# Execute command
 if [ -f "$execute_file" ]; then
   source "$execute_file"
 else
   echo "devtools: command not found, see documentation for help!"
+  exit 1
 fi

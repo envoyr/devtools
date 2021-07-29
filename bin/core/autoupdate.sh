@@ -6,7 +6,7 @@ option=$3
 # Check if option is set
 if [ -z "$option" ]; then
   echo "Error: option not entered! Options: enable, disable"
-  exit
+  exit 1
 fi
 
 # Set autoupdate by option
@@ -21,5 +21,6 @@ case $option in
      ;;
    *)
      echo "Option not available"
+     exit 1
      ;;
 esac

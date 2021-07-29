@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update repository
-cd "$DEVTOOLS_DIRECTORY" || exit
+cd "$DEVTOOLS_DIRECTORY" || exit 1
 git fetch --all --quiet
 git reset --hard origin/main --quiet
 

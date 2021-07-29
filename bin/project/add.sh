@@ -33,9 +33,9 @@ done
 
 # Add new user to the system
 if id "$user" &>/dev/null; then
-    echo 'User already exist! Continue...'
+  echo "User already exist! Continue..."
 else
-    devtools user add "$user"
+  devtools user add "$user"
 fi
 
 # Create new directory for user

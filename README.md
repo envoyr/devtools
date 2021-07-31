@@ -9,6 +9,14 @@ devtools is installed by running of the following command in your terminal. You 
 ````
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/envoyr/devtools/main/bin/install.sh)"
 ````
+or
+
+````
+git clone git@github.com:envoyr/devtools.git /root/.devtools
+chmod +x /root/.devtools/devtools
+ln -s "/root/.devtools/devtools" /usr/local/bin/devtools
+````
+
 
 ## Documentation
 

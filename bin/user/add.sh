@@ -14,7 +14,7 @@ fi
 if id "$user" &>/dev/null; then
   echo "Error: User already exist!"
   exit 1
-else
+fi
 
 # Add new user to the system
 sudo adduser --gecos GECOS $user

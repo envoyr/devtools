@@ -13,10 +13,18 @@ or
 
 ````
 git clone git@github.com:envoyr/devtools.git /root/.devtools
+````
+
+````
 chmod +x /root/.devtools/devtools
 ln -s "/root/.devtools/devtools" /usr/local/bin/devtools
 ````
 
+Get core functions enabled with:
+
+````
+devtools core install
+````
 
 ## Documentation
 

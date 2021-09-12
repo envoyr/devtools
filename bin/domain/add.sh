@@ -44,7 +44,7 @@ else
 fi
 
 # Create new directory for user
-sudo mkdir $storage_path
+sudo mkdir -p $storage_path
 
 # Set permissions for storahe path
 devtools permissions set $user $storage_path

@@ -27,7 +27,7 @@ for i in "$@"; do
       shift
       ;;
     --domains)
-      export domains="$2"
+      export domains="${i#*=}"
       shift
       ;;
     --try-files)
@@ -35,7 +35,7 @@ for i in "$@"; do
       shift
       ;;
     --user)
-      export user="$2"
+      export user="${i#*=}"
       shift
       ;;
     *)

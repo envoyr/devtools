@@ -29,7 +29,7 @@ for i in "$@"; do
       ;;
     --www)
       export domains="$domain www.$domain"
-      export certbot_domains="$domain -d www.$domain"
+      export certbot_domains="$domain,www.$domain"
       shift
       ;;
     *)

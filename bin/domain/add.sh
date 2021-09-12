@@ -26,8 +26,16 @@ for i in "$@"; do
       export domains="$domains www.$domain"
       shift
       ;;
+    --domains)
+      export domains="$2"
+      shift
+      ;;
     --try-files)
       export try_files='$uri $uri/ =404'
+      shift
+      ;;
+    --user)
+      export user="$2"
       shift
       ;;
     *)

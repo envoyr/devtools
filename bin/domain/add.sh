@@ -22,8 +22,8 @@ fi
 # Handle options
 for i in "$@"; do
   case $i in
-    --dry-run)
-      certbot_options="--dry-run"
+    --skip-certbot)
+      certbot_skip_cetificates="1"
       shift
       ;;
     --www)
@@ -59,7 +59,9 @@ sudo ln -s -f "/etc/nginx/sites-available/$domain" "/etc/nginx/sites-enabled/$do
 sudo service nginx reload
 
 # Obtain a new certificate
-# FIXME: "$certbot_options" --dry-run only available in certonly mode, not in nginx autoconfiguration
-sudo certbot --nginx -d "${domains// /,}" # "$certbot_options"
+if [ -z "$certbot_skip_cetificates" ]; then
+  # FIXME: "$certbot_options" --dry-run only available in certonly mode, not in nginx autoconfiguration
+  sudo certbot --nginx -d "${domains// /,}" # "$certbot_options"
+fi
 
 echo "Project created!"

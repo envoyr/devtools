@@ -61,7 +61,7 @@ sudo ln -s -f "/etc/nginx/sites-available/$domain" "/etc/nginx/sites-enabled/$do
 sudo service nginx reload
 
 # Copy default page and set permissions
-cp "$DEVTOOLS_DIRECTORY/templates/html/. $storage_path"
+cp -r "$DEVTOOLS_DIRECTORY/templates/html/. $storage_path/"
 devtools permissions set $user $storage_path
 
 # Obtain a new certificate

@@ -26,7 +26,7 @@ for i in "$@"; do
       export domains="$domains www.$domain"
       shift
       ;;
-    --domains)
+    --domains=*)
       export domains="${i#*=}"
       shift
       ;;
@@ -34,7 +34,7 @@ for i in "$@"; do
       export try_files='$uri $uri/ =404'
       shift
       ;;
-    --user)
+    --user=*)
       export user="${i#*=}"
       shift
       ;;

@@ -3,6 +3,7 @@
 # Set config variables
 export user=$3
 export domain=$4
+export domains=$4
 export storage_path="/home/$user/www/$domain"
 export try_files='$uri $uri/ /index.php?$query_string' # export try_files='$uri $uri/ =404'
 
@@ -23,6 +24,10 @@ for i in "$@"; do
   case $i in
     --dry-run)
       certbot_options="--dry-run"
+      shift
+      ;;
+    --www)
+      export domains="$domains www.$domain"
       shift
       ;;
     *)

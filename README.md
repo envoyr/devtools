@@ -44,12 +44,12 @@ devtools core autoupdate <enable|disable>
 devtools permissions set <user> <folder>
 ````
 
-### Project
+### Domain
 
 ````
-devtools project add <user> <domain>
-devtools project disable <name> <domain>
-devtools project delete <name> <domain>
+devtools domain add <user> <domain>
+devtools domain disable <name> <domain>
+devtools domain delete <name> <domain>
 ````
 
 ### User

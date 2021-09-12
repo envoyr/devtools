@@ -4,7 +4,6 @@
 export user=$3
 export domain=$4
 export domains=$domain
-export certbot_domains=$domain
 export storage_path="/home/$user/www/$domain"
 export try_files='$uri $uri/ /index.php?$query_string' # export try_files='$uri $uri/ =404'
 
@@ -28,8 +27,7 @@ for i in "$@"; do
       shift
       ;;
     --www)
-      export domains="$domain www.$domain"
-      export certbot_domains="$domain,www.$domain"
+      export domains="$domains www.$domain"
       shift
       ;;
     *)
@@ -62,6 +60,6 @@ sudo service nginx reload
 
 # Obtain a new certificate
 # FIXME: "$certbot_options" --dry-run only available in certonly mode, not in nginx autoconfiguration
-sudo certbot --nginx -d "$certbot_domains" # "$certbot_options"
+sudo certbot --nginx -d "${domains// /,}" # "$certbot_options"
 
 echo "Project created!"

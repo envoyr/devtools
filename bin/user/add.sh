@@ -1,8 +1,8 @@
 #!/bin/bash
 
 user=$3
+storage_path=$4
 webserver="www-data"
-storage_path="/home/$user/www"
 
 # Check if user name is set
 if [ -z "$user" ]; then
@@ -17,13 +17,13 @@ if id "$user" &>/dev/null; then
 fi
 
 # Add new user to the system
-sudo adduser --gecos GECOS $user
+sudo adduser --system --no-create-home --home $storage_path $user
 
 # Add nginx user to new created user
 sudo usermod -a -G $user $webserver
 
 # Create new directory for user
-sudo mkdir $storage_path
+sudo mkdir -p $storage_path
 
 # Set permissions for storahe path
 devtools permissions set $user $storage_path

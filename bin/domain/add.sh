@@ -1,21 +1,15 @@
 #!/bin/bash
 
 # Set config variables
-export user=$3
 export domain=$4
 export domains=$domain
-export storage_path="/home/$user/www/$domain"
-export try_files='$uri $uri/ /index.php?$query_string' # export try_files='$uri $uri/ =404'
+export user=${domain//./-}
+export storage_path="/var/www/$domain"
+export try_files='$uri $uri/ /index.php?$query_string'
 
 # Check if domain name is set
 if [ -z "$domain" ]; then
   echo "Error: Domain not entered!"
-  exit 1
-fi
-
-# Check if user name is set
-if [ -z "$user" ]; then
-  echo "Error: User not entered!"
   exit 1
 fi
 
@@ -30,6 +24,10 @@ for i in "$@"; do
       export domains="$domains www.$domain"
       shift
       ;;
+    --try-files)
+      export try_files='$uri $uri/ =404'
+      shift
+      ;;
     *)
       # unknown option
       ;;
@@ -40,14 +38,8 @@ done
 if id "$user" &>/dev/null; then
   echo "User already exist! Continue..."
 else
-  devtools user add "$user"
+  devtools user add "$user" "$storage_path"
 fi
-
-# Create new directory for user
-sudo mkdir -p $storage_path
-
-# Set permissions for storahe path
-devtools permissions set $user $storage_path
 
 # Copy new config file and enable in php-fpm
 envsubst <"$DEVTOOLS_DIRECTORY/templates/fpm.conf" >"/etc/php/8.0/fpm/pool.d/$domain.conf"
@@ -64,4 +56,4 @@ if [ -z "$certbot_skip_cetificates" ]; then
   sudo certbot --nginx -d "${domains// /,}" # "$certbot_options"
 fi
 
-echo "Project created!"
+echo "Domain created!"

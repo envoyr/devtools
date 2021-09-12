@@ -17,7 +17,7 @@ if id "$user" &>/dev/null; then
 fi
 
 # Add new user to the system
-sudo adduser --system --no-create-home --home $storage_path $user
+sudo adduser --gecos --disabled-login --no-create-home --home $storage_path $user
 
 # Add nginx user to new created user
 sudo usermod -a -G $user $webserver

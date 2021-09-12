@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set config variables
-export domain=$4
+export domain=$3
 export domains=$domain
 export user=${domain//./-}
 export storage_path="/var/www/$domain"

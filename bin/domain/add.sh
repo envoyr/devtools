@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Set config variables
 export domain=$3
 export domains=$domain
@@ -53,7 +55,7 @@ sudo service nginx reload
 # Obtain a new certificate
 if [ -z "$certbot_skip_cetificates" ]; then
   # FIXME: "$certbot_options" --dry-run only available in certonly mode, not in nginx autoconfiguration
-  sudo certbot --nginx -d "${domains// /,}" # "$certbot_options"
+  sudo certbot --nginx -d "${domains// /,}"
 fi
 
 echo "Domain created!"

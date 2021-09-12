@@ -50,9 +50,11 @@ devtools permissions set <user> <folder>
 devtools domain add <domain>
 
 Flags:
-  --skip-certbot  Skip ssl certificates
-  --www           Add www alias
-  --try-files     Change try_files to '$uri $uri/ =404'
+  --skip-certbot                            Skip ssl certificates
+  --www                                     Add www alias
+  --try-files                               Change try_files to '$uri $uri/ =404'
+  --user=<name>                             Change user
+  --domains="example.com www.example.com"   Add custom alias (overrides --www flag)
 ````
 
 ### User

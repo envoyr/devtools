@@ -27,7 +27,7 @@ sudo adduser --disabled-login --gecos GECOS --no-create-home --home $storage_pat
 # Add nginx user to new created user
 sudo usermod -a -G $user $webserver
 
-# Set permissions for storahe path
+# Set permissions for storage path
 devtools permissions set $user $storage_path
 
 echo "User created!"

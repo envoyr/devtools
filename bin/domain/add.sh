@@ -60,6 +60,10 @@ envsubst <"$DEVTOOLS_DIRECTORY/templates/domain.conf" >"/etc/nginx/sites-availab
 sudo ln -s -f "/etc/nginx/sites-available/$domain" "/etc/nginx/sites-enabled/$domain"
 sudo service nginx reload
 
+# Copy default page and set permissions
+cp "$DEVTOOLS_DIRECTORY/templates/html/. $storage_path"
+devtools permissions set $user $storage_path
+
 # Obtain a new certificate
 if [ -z "$certbot_skip_cetificates" ]; then
   # FIXME: "$certbot_options" --dry-run only available in certonly mode, not in nginx autoconfiguration

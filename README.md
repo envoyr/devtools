@@ -47,9 +47,12 @@ devtools permissions set <user> <folder>
 ### Domain
 
 ````
-devtools domain add <user> <domain>
-devtools domain disable <name> <domain>
-devtools domain delete <name> <domain>
+devtools domain add <domain>
+
+Flags:
+  --skip-certbot  Skip ssl certificates
+  --www           Add www alias
+  --try-files     Change try_files to '$uri $uri/ =404'
 ````
 
 ### User

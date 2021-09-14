@@ -4,6 +4,7 @@ set -e
 
 # Set config variables
 export domain=$3
+export user=${domain//./-}
 export storage_path="/var/www/$domain"
 
 # Check if domain name is set
@@ -11,6 +12,19 @@ if [ -z "$domain" ]; then
   echo "Error: Domain not entered!"
   exit 1
 fi
+
+# Handle options
+for i in "$@"; do
+  case $i in
+    --user=*)
+      export user="${i#*=}"
+      shift
+      ;;
+    *)
+      # unknown option
+      ;;
+  esac
+done
 
 # Delete php-fpm config
 rm -f "/etc/php/8.0/fpm/pool.d/$domain.conf"
@@ -25,5 +39,9 @@ rm -Rf "$storage_path"
 
 # Delete certificates
 sudo certbot delete --cert-name "$domain" --non-interactive || true
+
+# Delete user & group
+deluser "$user"
+delgroup "$user"
 
 echo "Domain deleted!"

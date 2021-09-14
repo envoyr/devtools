@@ -23,6 +23,7 @@ sudo service nginx reload
 # Delete domain files
 rm -Rf "$storage_path"
 
-# TODO: Delete certificates
+# Delete certificates
+sudo certbot delete --cert-name "$domain" --non-interactive || true
 
 echo "Domain deleted!"

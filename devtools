@@ -16,6 +16,7 @@ execute_file="$DEVTOOLS_DIRECTORY/bin/$1/$2.sh"
 if [ -f "$execute_file" ]; then
   source "$execute_file"
 else
-  echo "devtools: command not found, see documentation for help!"
+  cat "$DEVTOOLS_DIRECTORY/HELP"
+  echo
   exit 1
 fi

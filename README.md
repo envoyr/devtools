@@ -31,37 +31,7 @@ devtools core install
 
 ## Documentation
 
-### Core
-
-````
-devtools core install
-devtools core update
-devtools core autoupdate <enable|disable>
-````
-
-### Permissions
-````
-devtools permissions set <user> <folder>
-````
-
-### Domain
-
-````
-devtools domain add <domain>
-
-Flags:
-  --skip-certbot                            Skip ssl certificates
-  --www                                     Add www alias
-  --try-files                               Change try_files to '$uri $uri/ =404'
-  --user=<name>                             Change user
-  --domains="example.com www.example.com"   Add custom alias (overrides --www flag)
-````
-
-### User
-
-````
-devtools user add <user>
-````
+See [Help](HELP) for more informations.
 
 ## License
 

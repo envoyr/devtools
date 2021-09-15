@@ -28,7 +28,10 @@ setup_devtools() {
     ln -s "$DEVTOOLS_DIRECTORY/devtools" /usr/local/bin/devtools
   fi
   
+  echo
   echo "Installation done!"
+  echo
+  echo "Please use 'devtools core install' to install all requirements"
 }
 
 setup_devtools

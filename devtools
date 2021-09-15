@@ -17,6 +17,5 @@ if [ -f "$execute_file" ]; then
   source "$execute_file"
 else
   cat "$DEVTOOLS_DIRECTORY/HELP"
-  echo
   exit 1
 fi

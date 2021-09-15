@@ -27,6 +27,8 @@ setup_devtools() {
   if [[ ! -f "/usr/local/bin/devtools" ]]; then
     ln -s "$DEVTOOLS_DIRECTORY/devtools" /usr/local/bin/devtools
   fi
+  
+  echo "Installation done!"
 }
 
 setup_devtools

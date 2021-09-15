@@ -29,9 +29,9 @@ setup_devtools() {
   fi
   
   echo
-  echo "Installation done!"
-  echo
-  echo "Please use 'devtools core install' to install all requirements"
+  echo "Starting installation..."
+  
+  devtools core install
 }
 
 setup_devtools

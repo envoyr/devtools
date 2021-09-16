@@ -10,26 +10,24 @@ devtools is installed by running of the following command in your terminal. You 
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/envoyr/devtools/main/bin/install.sh)"
 ````
 
-## Installation (alternative)
-
-````
-git clone git@github.com:envoyr/devtools.git /root/.devtools
-````
-
-````
-chmod +x /root/.devtools/devtools
-ln -s "/root/.devtools/devtools" /usr/local/bin/devtools
-````
-
 ## Setup
 
-Get core functions enabled with:
-
-````
-devtools core install
-````
+Everything should be provided automatically now.
 
 ## Documentation
+
+### Adding new domains
+
+````
+devtools domain add <domain>
+
+Options:
+  --skip-certbot                            Skip ssl certificates
+  --www                                     Add www alias
+  --try-files                               Change try_files to '$uri $uri/ =404'
+  --user=<name>                             Change user
+  --domains="example.com www.example.com"   Add custom alias (overrides --www flag)
+````
 
 See [Help](HELP) for more informations.
 

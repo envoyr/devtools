@@ -11,8 +11,13 @@ fi
 
 # Check if storage path is set
 if [ -z "$storage_path" ]; then
-  echo "Error: Storage path not entered!"
-  exit 1
+  echo "Securing default directory for domains..."
+  storage_path="/var/www/${domain//-/.}"
+
+  if [ ! -d "$storage_path" ]; then
+    echo "Error: No default directory found, please set it manually!"
+    exit 1
+  fi
 fi
 
 # All the files should be owned by the website user and the website user's group

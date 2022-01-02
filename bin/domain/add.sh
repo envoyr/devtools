@@ -6,7 +6,7 @@ set -e
 export domain=$4
 export domains=$domain
 export user=$3
-export storage_path="/var/customers/web/$user/$domain"
+export storage_path="/var/customers/webs/$user/$domain"
 export try_files='$uri $uri/ /index.php?$query_string'
 
 # Check if domain name is set

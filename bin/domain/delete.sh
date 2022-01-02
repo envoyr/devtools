@@ -5,7 +5,7 @@ set -e
 # Set config variables
 export domain=$4
 export user=$3
-export storage_path="/var/customers/web/$user/$domain"
+export storage_path="/var/customers/webs/$user/$domain"
 
 # Check if domain name is set
 if [ -z "$domain" ]; then

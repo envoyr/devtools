@@ -11,7 +11,7 @@ fi
 
 # Check if storage path is set
 if [ -z "$storage_path" ]; then
-  storage_path="/var/customers/web/$user"
+  storage_path="/var/customers/webs/$user"
   echo "Securing default directory $storage_path"
 
   if [ ! -d "$storage_path" ]; then

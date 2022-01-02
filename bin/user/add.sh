@@ -4,7 +4,7 @@ set -e
 
 user=$3
 storage_path=$4
-webserver="www-data"
+webuser="www-data"
 
 # Check if user name is set
 if [ -z "$user" ]; then
@@ -25,7 +25,7 @@ sudo mkdir -p $storage_path
 sudo adduser --disabled-login --gecos GECOS --no-create-home --home $storage_path $user
 
 # Add nginx user to new created user
-sudo usermod -a -G $user $webserver
+sudo usermod -a -G $user $webuser
 
 # Set permissions for storage path
 devtools permissions set $user $storage_path

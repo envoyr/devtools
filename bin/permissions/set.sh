@@ -14,7 +14,7 @@ if [ -z "$storage_path" ]; then
   storage_path="/var/www/${user//-/.}"
   echo "Securing default directory $storage_path"
 
-  if [ ! id "$user" &>/dev/null ] || [ ! -d "$storage_path" ]; then
+  if [ ! -d "$storage_path" ]; then
     echo "Error: No user or default directory found, please set it manually!"
     exit 1
   fi

@@ -47,7 +47,7 @@ rm -Rf "$storage_path"
 sudo certbot delete --cert-name "$domain" --non-interactive || true
 
 # Delete user & group
-deluser "$user"
-delgroup "$user"
+# deluser "$user"
+# delgroup "$user"
 
 echo "Domain deleted!"

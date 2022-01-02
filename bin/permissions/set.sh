@@ -11,8 +11,8 @@ fi
 
 # Check if storage path is set
 if [ -z "$storage_path" ]; then
-  echo "Securing default directory for domains..."
   storage_path="/var/www/${domain//-/.}"
+  echo "Securing default directory $storage_path"
 
   if [ ! -d "$storage_path" ]; then
     echo "Error: No default directory found, please set it manually!"

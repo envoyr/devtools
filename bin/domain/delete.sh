@@ -3,13 +3,19 @@
 set -e
 
 # Set config variables
-export domain=$3
-export user=${domain//./-}
-export storage_path="/var/www/$domain"
+export domain=$4
+export user=$3
+export storage_path="/var/customers/web/$user/$domain"
 
 # Check if domain name is set
 if [ -z "$domain" ]; then
   echo "Error: Domain not entered!"
+  exit 1
+fi
+
+# Check if user name is set
+if [ -z "$user" ]; then
+  echo "Error: User not entered!"
   exit 1
 fi
 

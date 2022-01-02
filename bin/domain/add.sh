@@ -40,10 +40,6 @@ for i in "$@"; do
       export try_files='$uri $uri/ =404'
       shift
       ;;
-    --user=*)
-      export user="${i#*=}"
-      shift
-      ;;
     *)
       # unknown option
       ;;

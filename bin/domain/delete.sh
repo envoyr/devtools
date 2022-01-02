@@ -22,10 +22,6 @@ fi
 # Handle options
 for i in "$@"; do
   case $i in
-    --user=*)
-      export user="${i#*=}"
-      shift
-      ;;
     *)
       # unknown option
       ;;

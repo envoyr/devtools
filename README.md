@@ -22,6 +22,7 @@ Everything should be provided automatically now.
 devtools domain add <user> <domain>
 
 Options:
+  --path="public"                           Extends the storage_path to 'public'
   --skip-certbot                            Skip ssl certificates
   --www                                     Add www alias
   --try-files                               Change try_files to '$uri $uri/ =404'

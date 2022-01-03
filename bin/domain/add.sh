@@ -25,8 +25,12 @@ fi
 # Handle options
 for i in "$@"; do
   case $i in
+    --path=*)
+      export storage_path="$home/$domain/${i#*=}"
+      shift
+      ;;
     --skip-certbot)
-      certbot_skip_cetificates="1"
+      $certbot_skip_certificates="1"
       shift
       ;;
     --www)
@@ -68,8 +72,7 @@ cp -r "$DEVTOOLS_DIRECTORY/templates/html/." "$storage_path/"
 devtools permissions set $user $storage_path
 
 # Obtain a new certificate
-if [ -z "$certbot_skip_cetificates" ]; then
-  # FIXME: "$certbot_options" --dry-run only available in certonly mode, not in nginx autoconfiguration
+if [ -z "$certbot_skip_certificates" ]; then
   sudo certbot --nginx -d "${domains// /,}"
 fi
 

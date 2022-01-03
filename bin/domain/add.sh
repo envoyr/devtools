@@ -6,7 +6,8 @@ set -e
 export domain=$4
 export domains=$domain
 export user=$3
-export storage_path="/var/customers/webs/$user/$domain"
+export home="/var/customers/webs/$user"
+export storage_path="$home/$domain"
 export try_files='$uri $uri/ /index.php?$query_string'
 
 # Check if domain name is set
@@ -50,7 +51,7 @@ done
 if id "$user" &>/dev/null; then
   echo "User already exist! Continue..."
 else
-  devtools user add "$user" "$storage_path"
+  devtools user add "$user" "$home"
 fi
 
 # Copy new config file and enable in php-fpm

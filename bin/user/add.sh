@@ -3,7 +3,7 @@
 set -e
 
 user=$3
-storage_path=$4
+home=$4
 webuser="www-data"
 
 # Check if user name is set
@@ -19,15 +19,15 @@ if id "$user" &>/dev/null; then
 fi
 
 # Create new directory for user
-sudo mkdir -p $storage_path
+sudo mkdir -p $home
 
 # Add new user to the system
-sudo adduser --disabled-login --gecos GECOS --no-create-home --home $storage_path $user
+sudo adduser --disabled-login --gecos GECOS --no-create-home --home $home $user
 
 # Add nginx user to new created user
 sudo usermod -a -G $user $webuser
 
 # Set permissions for storage path
-devtools permissions set $user $storage_path
+devtools permissions set $user $home
 
 echo "User created!"

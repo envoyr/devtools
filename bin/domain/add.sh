@@ -3,11 +3,10 @@
 set -e
 
 # Set config variables
+export user=$3
 export domain=$4
 export domains=$domain
-export user=$3
-export home="/var/customers/webs/$user"
-export storage_path="$home/$domain"
+export storage_path="$DEVTOOLS_WEB_DIRECTORY/$domain"
 export try_files='$uri $uri/ /index.php?$query_string'
 
 # Check if domain name is set
@@ -26,11 +25,11 @@ fi
 for i in "$@"; do
   case $i in
     --path=*)
-      export storage_path="$home/$domain/${i#*=}"
+      export storage_path="$storage_path/${i#*=}"
       shift
       ;;
     --skip-certbot)
-      $certbot_skip_certificates="1"
+      export certbot_skip_certificates="1"
       shift
       ;;
     --www)
@@ -55,7 +54,7 @@ done
 if id "$user" &>/dev/null; then
   echo "User already exist! Continue..."
 else
-  devtools user add "$user" "$home"
+  devtools user add "$user"
 fi
 
 # Copy new config file and enable in php-fpm
@@ -69,7 +68,7 @@ sudo service nginx reload
 
 # Copy default page and set permissions
 cp -r "$DEVTOOLS_DIRECTORY/templates/html/." "$storage_path/"
-devtools permissions set $user $storage_path
+devtools permissions set "$user" "$storage_path"
 
 # Obtain a new certificate
 if [ -z "$certbot_skip_certificates" ]; then

@@ -3,6 +3,7 @@
 set -e
 
 export DEVTOOLS_DIRECTORY="$HOME/.devtools"
+export DEVTOOLS_WEB_DIRECTORY="/var/www"
 
 # Automatically update application if enabled
 if [ -f "$DEVTOOLS_DIRECTORY/.autoupdate" ]; then
@@ -14,6 +15,7 @@ execute_file="$DEVTOOLS_DIRECTORY/bin/$1/$2.sh"
 
 # Execute command
 if [ -f "$execute_file" ]; then
+  # shellcheck disable=SC1090
   source "$execute_file"
 else
   cat "$DEVTOOLS_DIRECTORY/HELP"

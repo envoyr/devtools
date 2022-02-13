@@ -3,9 +3,9 @@
 set -e
 
 # Set config variables
-export domain=$4
 export user=$3
-export storage_path="/var/customers/webs/$user/$domain"
+export domain=$4
+export storage_path="$DEVTOOLS_WEB_DIRECTORY/$domain"
 
 # Check if domain name is set
 if [ -z "$domain" ]; then

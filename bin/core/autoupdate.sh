@@ -13,11 +13,11 @@ fi
 case $option in
    "enable")
      touch "$DEVTOOLS_DIRECTORY/.autoupdate"
-     echo "Autoupdate has been enabled!"
+     echo "Auto update has been enabled!"
      ;;
    "disable")
      rm -f "$DEVTOOLS_DIRECTORY/.autoupdate"
-     echo "Autoupdate has been disabled!"
+     echo "Auto update has been disabled!"
      ;;
    *)
      echo "Option not available"

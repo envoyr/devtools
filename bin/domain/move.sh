@@ -1,6 +1,4 @@
 #!/bin/bash
-#
-# example devtools domain move <domain> <from>
 
 set -e
 

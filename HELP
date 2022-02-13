@@ -16,6 +16,7 @@ Domain
       --www                                     Add www alias
       --try-files                               Change try_files to '$uri $uri/ =404'
       --domains="example.com www.example.com"   Add custom alias (overrides --www flag)
+  devtools domain move <domain> <from>
   devtools domain delete <user> <domain>
 
 User

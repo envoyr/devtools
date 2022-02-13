@@ -16,7 +16,7 @@ if [ -z "$domain" ]; then
 fi
 
 # Check if source path is set and move files
-if [ -d "$DIR" ]; then
+if [ -d "$from" ]; then
   echo "Moving files from $from $to"
   mv "$from/" "$to/"
 else

@@ -10,6 +10,7 @@ export from=$4
 export to="$DEVTOOLS_WEB_DIRECTORY/$domain"
 
 # Move files to new location
+echo "Moving files from $from $to"
 mv "$from" "$to"
 
 # Copy new config file and enable in nginx

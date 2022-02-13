@@ -14,5 +14,5 @@ echo "Moving files from $from $to"
 mv "$from/" "$to/"
 
 # Copy new config file and enable in nginx
-sed -i "s/$from/$to/" "/etc/nginx/sites-available/$domain"
+sed -i "s|$from|$to|g" "/etc/nginx/sites-available/$domain"
 sudo service nginx reload

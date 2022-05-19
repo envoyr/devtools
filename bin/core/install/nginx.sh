@@ -2,7 +2,7 @@
 
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install -y software-properties-common
+sudo apt-get install -y software-properties-common gnupg
 
 # Nginx
 sudo apt-get install -y nginx

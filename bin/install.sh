@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 DEVTOOLS_DIRECTORY="$HOME/.devtools"
 
 setup_devtools() {

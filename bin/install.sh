@@ -10,6 +10,7 @@ setup_devtools() {
   fi
   
   # Install required software for devtools
+  apt-get update -y
   apt-get install --quiet -y git
   
   # Install devtools in user home directory

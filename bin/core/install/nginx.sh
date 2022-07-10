@@ -11,8 +11,8 @@ sudo apt-get install -y nginx
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt-get update
 
-sudo apt-get install -y php8.0-fpm php8.0-mysql
-sudo apt-get install -y php8.0-xml php8.0-mbstring php8.0-curl php8.0-zip zip unzip php8.0-bcmath php8.0-gd php8.0-redis
+sudo apt-get install -y php8.1-fpm php8.1-mysql
+sudo apt-get install -y php8.1-xml php8.1-mbstring php8.1-curl php8.1-zip zip unzip php8.1-bcmath php8.1-gd php8.1-redis
 
 # Test and reload
 sudo nginx -t

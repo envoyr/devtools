@@ -58,8 +58,8 @@ else
 fi
 
 # Copy new config file and enable in php-fpm
-envsubst <"$DEVTOOLS_DIRECTORY/templates/fpm.conf" >"/etc/php/8.0/fpm/pool.d/$domain.conf"
-sudo service php8.0-fpm reload
+envsubst <"$DEVTOOLS_DIRECTORY/templates/fpm.conf" >"/etc/php/8.1/fpm/pool.d/$domain.conf"
+sudo service php8.1-fpm reload
 
 # Copy new config file and enable in nginx
 envsubst <"$DEVTOOLS_DIRECTORY/templates/domain.conf" >"/etc/nginx/sites-available/$domain"

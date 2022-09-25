@@ -29,8 +29,8 @@ for i in "$@"; do
 done
 
 # Delete php-fpm config
-rm -f "/etc/php/8.0/fpm/pool.d/$domain.conf"
-sudo service php8.0-fpm reload
+rm -f "/etc/php/8.1/fpm/pool.d/$domain.conf"
+sudo service php8.1-fpm reload
 
 # Delete nginx configs
 rm -f "/etc/nginx/sites-available/$domain" "/etc/nginx/sites-enabled/$domain"
